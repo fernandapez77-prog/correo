@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> Un correo para ti mi amor </title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- Corazones flotando -->
+  <script>
+    setInterval(() => {
+      const heart = document.createElement("div");
+      heart.innerText = "💖";
+      heart.style.position = "fixed";
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.bottom = "0";
+      heart.style.fontSize = "24px";
+      heart.style.animation = "floatUp 3s linear";
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 3000);
+    }, 800);
+  </script>
+
+  <style>
+    @keyframes floatUp {
+      from { transform: translateY(0); opacity: 1; }
+      to { transform: translateY(-100vh); opacity: 0; }
+    }
+
+    body {
+      font-family: "Poppins", sans-serif;
+      background-color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      text-align: center;
+    }
+
+    h2 { margin-bottom: 20px; }
+
+    .screen {
+      display: none;
+      animation: fadeIn 0.8s ease;
+      width: 90%;
+      max-width: 600px;
+    }
+
+    .active { display: block; }
+
+    .main-img {
+      width: 280px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .main-img:hover { transform: scale(1.05); }
+
+    .card {
+      background: repeating-linear-gradient(
+        white,
+        white 28px,
+        #e3e3e3 29px
+      );
+      padding: 40px 60px;
+      border: 2px solid #e5e5e5;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+      text-align: left;
+    }
+
+    .card h3 {
+      font-family: 'Dancing Script', cursive;
+      font-size: 2em;
+      margin-bottom: 20px;
+    }
+
+    .card p {
+      font-family: 'Dancing Script', cursive;
+      font-size: 1.3em;
+      line-height: 1.6;
+    }
+
+    .return-btn {
+      margin: 15px 5px;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 6px;
+      background-color: #ff4f81;
+      color: white;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .return-btn:hover { background-color: #ff2a66; }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- SCREEN 1 -->
+  <div class="screen active" id="screen1">
+    <h2>Holii amor, espero te guste jiji 💕</h2>
+    <img src="wall-e.png" class="main-img" onclick="nextScreen(2)">
+  </div>
+
+  <!-- SCREEN 2 -->
+  <div class="screen" id="screen2">
+    <h2>Una cartita para ti, por estos 7 meses 💖</h2>
+    <img src="penguis.png" class="main-img" onclick="nextScreen(3)">
+  </div>
+
+  <!-- SCREEN 3 -->
+  <div class="screen" id="screen3">
+    <h2>Abrir 💌</h2>
+    <img src="batkit.png" class="main-img" onclick="nextScreen(4)">
+  </div>
+
+  <!-- SCREEN 4 -->
+  <div class="screen" id="screen4">
+    <h2>Ya merito jiji 💕</h2>
+    <img src="herculees.png" class="main-img" onclick="nextScreen(5)">
+  </div>
+
+  <!-- SCREEN 5 CARTA -->
+  <div class="screen" id="screen5">
+    <div class="card">
+      <h3>Holi mi amor 💖</h3>
+      <p>Felices 7 meses juntos amor, hemos pasada por mucho pero 
+        seguimos aquí, y eso me hace muy feliz. Quiero que sepas
+        que quiero estar a tu lado siempre y apoyarte en todo lo que
+        pueda. Seguiremos construyendo recuerdos juntos,
+        aprendiendo el uno del otro y creciendo como pareja. Aun nos falta
+        mucho por vivir y descubrir.
+      </p>
+      <p>Si, es tarde pero no queria dejarlo asi nadamas, no es mucho ni algo 
+        de valor material, pero es de corazón. Espero que te guste. Es cuestión
+        de tiempo amor, me tratare de esforzar cada dia mas para amarte
+        como te mereces y hacerte feliz mi amor.
+      </p>
+      <p>
+        Te amo con todo mi corazón, gracias por todo no me cansare de
+        agradecerte por haber llegado a mi vida y por estos hermosos 7 meses 
+        juntos. 
+      </p>
+
+      <p><strong>TE AMO ❤️</strong></p>
+    </div>
+
+    <div style="text-align:center;">
+      <button class="return-btn" onclick="nextScreen(6)"> Sorpresa</button>
+      <button class="return-btn" onclick="nextScreen(1)"> Regresar</button>
+    </div>
+  </div>
+
+  <!-- SCREEN 6 SORPRESA -->
+  <div class="screen" id="screen6">
+    <div class="card">
+      <h3>Sorpresa 💖</h3>
+      <p>
+        Esto es solo el comienzo de todo lo bonito que quiero vivir contigo.
+        Eres el amor de mi vida mi niño hermoso, guapo, mamado y precioso.
+      </p>
+      <p>Siempre juntos ❤️</p>
+      <div style="text-align: center;">
+  <img src="cine.jpeg" class="main-img">
+</div>
+    </div>
+
+    <div style="text-align:center;">
+      <button class="return-btn" onclick="nextScreen(5)"> Regresar</button>
+    </div>
+  </div>
+
+  <script>
+    function nextScreen(num) {
+      document.querySelectorAll(".screen").forEach(s => s.classList.remove("active"));
+      document.getElementById("screen" + num).classList.add("active");
+    }
+  </script>
+
+</body>
+</html>
